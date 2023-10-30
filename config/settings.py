@@ -36,6 +36,7 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'api',
     'common',
+    'breaks',
 ]
 # after apps
 INSTALLED_APPS += [
@@ -131,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ###########################
 # LOCALIZATION
 ###########################
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-Ru'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
