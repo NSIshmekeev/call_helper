@@ -1,5 +1,4 @@
 from datetime import timedelta
-from pathlib import Path
 import environ
 import os
 
@@ -8,6 +7,10 @@ env = environ.Env()
 environ.Env.read_env(env.str(root(), '.env'))
 
 BASE_DIR = root()
+
+# Переопределение пользователя, AUTHENTICATION_BACKENDS отвечает за параметры аунтефикации на сайте
+AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = ('users.backends.AuthBackend',)
 
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
@@ -30,13 +33,16 @@ INSTALLED_APPS += [
     'django_filters',
     'corsheaders',
     'djoser',
+    'phonenumbers',
+    'phonenumber_field',
+
 ]
 
 #my_apps
 INSTALLED_APPS += [
+    'users',
     'api',
     'common',
-    'users',
     'breaks',
 ]
 # after apps
